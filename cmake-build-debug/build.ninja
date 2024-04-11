@@ -55,8 +55,8 @@ build CMakeFiles/LinkedListDictionary.dir/main.cpp.obj: CXX_COMPILER__LinkedList
   OBJECT_DIR = CMakeFiles\LinkedListDictionary.dir
   OBJECT_FILE_DIR = CMakeFiles\LinkedListDictionary.dir
 
-build CMakeFiles/LinkedListDictionary.dir/Node.cpp.obj: CXX_COMPILER__LinkedListDictionary_unscanned_Debug D$:/Programming$ Docs/Projects/C++/LinkedListDictionary/Node.cpp || cmake_object_order_depends_target_LinkedListDictionary
-  DEP_FILE = CMakeFiles\LinkedListDictionary.dir\Node.cpp.obj.d
+build CMakeFiles/LinkedListDictionary.dir/NODE.cpp.obj: CXX_COMPILER__LinkedListDictionary_unscanned_Debug D$:/Programming$ Docs/Projects/C++/LinkedListDictionary/NODE.cpp || cmake_object_order_depends_target_LinkedListDictionary
+  DEP_FILE = CMakeFiles\LinkedListDictionary.dir\NODE.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\LinkedListDictionary.dir
   OBJECT_FILE_DIR = CMakeFiles\LinkedListDictionary.dir
@@ -75,7 +75,7 @@ build CMakeFiles/LinkedListDictionary.dir/NodeProcess.cpp.obj: CXX_COMPILER__Lin
 #############################################
 # Link the executable LinkedListDictionary.exe
 
-build LinkedListDictionary.exe: CXX_EXECUTABLE_LINKER__LinkedListDictionary_Debug CMakeFiles/LinkedListDictionary.dir/main.cpp.obj CMakeFiles/LinkedListDictionary.dir/Node.cpp.obj CMakeFiles/LinkedListDictionary.dir/NodeProcess.cpp.obj
+build LinkedListDictionary.exe: CXX_EXECUTABLE_LINKER__LinkedListDictionary_Debug CMakeFiles/LinkedListDictionary.dir/main.cpp.obj CMakeFiles/LinkedListDictionary.dir/NODE.cpp.obj CMakeFiles/LinkedListDictionary.dir/NodeProcess.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\LinkedListDictionary.dir

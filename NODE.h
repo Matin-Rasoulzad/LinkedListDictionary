@@ -12,19 +12,18 @@ public:
     // Setters
     void setWord(string word);
     void setSynonym(string synonym);
-    void setAddress(NODE* Address);
+    void setNextAddress(NODE* Address);
     void setTail();
-    void setHead();
 
     // Getters
     string getWord();
     string getSynonym();
-    NODE* getAddress();
+    NODE* getNextAddress();
 
 private:
     string word;
     string synonym;
-    NODE *nextNode;
+    NODE *nextNode = nullptr;
 };
 
 #endif //LINKEDLISTDICTIONARY_NODE_H
