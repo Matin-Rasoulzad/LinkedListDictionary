@@ -1,0 +1,5 @@
+# ninja log v5
+2	211	7345340556347066	CMakeFiles/LinkedListDictionary.dir/main.cpp.obj	697259866bab14d4
+211	268	7345340556893249	LinkedListDictionary.exe	1135030509399e3e
+0	116	7345341669488790	build.ninja	7246ed4ea2d221a3
+2	255	7345338533988096	CMakeFiles/LinkedListDictionary.dir/Node.cpp.obj	a7b17648953ead29
