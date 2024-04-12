@@ -7,7 +7,6 @@ int main() {
     cout << "Welcome to Custom LinkedList Dictionary" << endl;
     string word;
     string synonym;
-
     while (true) {
         int userChoice;
         cout << endl;
@@ -19,7 +18,15 @@ int main() {
         cout << "6. Import data from file" << endl;
         cout << "7. Export data to file" << endl;
         cout << "8. Exit" << endl;
-        cin >> userChoice;
+        try {
+            cin >> userChoice;
+            if (userChoice < 1 || userChoice > 8) {
+                throw invalid_argument("Invalid choice");
+            }
+        } catch (const invalid_argument& e) {
+            cerr << "Error: " << e.what() << endl;
+            continue;
+        }
 
         switch (userChoice) {
             NodeProcess processor;
@@ -31,10 +38,19 @@ int main() {
                 processor.addNode(word,synonym);
                 break;
             case 2:
-                break;
             case 3:
+                cout << "Please enter the word: ";
+                cin >> word;
                 break;
             case 4:
+                cout << "Please enter the word or its NO.: ";
+                cin >> word;
+                try {
+                    //Check if word is NO. or string
+                    processor.searchNode(stoi(word));
+                } catch (const std::invalid_argument& e) {
+                    processor.searchNode(word);
+                }
                 break;
             case 5:
                 processor.showList();
