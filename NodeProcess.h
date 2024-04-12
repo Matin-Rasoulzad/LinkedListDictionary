@@ -15,6 +15,9 @@ public:
     void searchNode(string word);
     void searchNode(int word);
     void deleteNode(string word);
+    void editNode(string word);
     bool isEmpty();
+    void exportNodes();
+    void importNodes();
 };
 #endif //LINKEDLISTDICTIONARY_NODEPROCESS_H

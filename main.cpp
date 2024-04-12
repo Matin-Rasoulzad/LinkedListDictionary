@@ -11,8 +11,8 @@ int main() {
         int userChoice;
         cout << endl;
         cout << "1. Add a word & synonym" << endl;
-        cout << "2. Delete the word" << endl;
-        cout << "3. Delete the synonym" << endl;
+        cout << "2. Delete the word or synonym" << endl;
+        cout << "3. Edit typo the word or synonym" << endl;
         cout << "4. Search by word or synonym" << endl;
         cout << "5. Display all of the database" << endl;
         cout << "6. Import data from file" << endl;
@@ -38,9 +38,14 @@ int main() {
                 processor.addNode(word,synonym);
                 break;
             case 2:
+                cout << "Please enter the word: ";
+                cin >> word;
+                processor.deleteNode(word);
+                break;
             case 3:
                 cout << "Please enter the word: ";
                 cin >> word;
+                processor.editNode(word);
                 break;
             case 4:
                 cout << "Please enter the word or its NO.: ";
@@ -56,15 +61,26 @@ int main() {
                 processor.showList();
                 break;
             case 6:
+                processor.importNodes();
                 break;
             case 7:
+                processor.exportNodes();
                 break;
             case 8:
+                char choice;
+                cout << "Do you want to save your progress? (y/n):\n";
+                cin >> choice;
+                if(tolower(choice)=='y'){
+                    processor.exportNodes();
+                    exit(0);
+                }
+                else{
+                    exit(0);
+                }
                 break;
             default:
                 cout << "Please Enter a valid choice!" << endl;
                 break;
         }
     }
-    return 0;
 }

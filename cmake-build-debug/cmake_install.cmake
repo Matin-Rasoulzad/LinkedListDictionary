@@ -1,5 +1,5 @@
 # Install script for directory: D:/Programming Docs/Projects/C++/LinkedListDictionary
-
+set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
   set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/LinkedListDictionary")
