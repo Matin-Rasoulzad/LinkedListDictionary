@@ -2,33 +2,39 @@
 #include "NODE.h"
 #include <iostream>
 #include <fstream>
-#include "ctime"
 #include "vector"
 #include "string"
 
-NODE *headerNode;
+NODE *headerNode; // Global variable for the header node of the linked list
 
+// Function to add a new node to the linked list
 void NodeProcess::addNode(string word, string synonym) {
     NODE *incrementor;
     NODE *newNode = new NODE;
 
+    // If the linked list is empty, create the header node
     if (headerNode == nullptr) {
         headerNode = new NODE;
         headerNode->setWord(word);
         headerNode->setSynonym(synonym);
         headerNode->setTail();
     } else {
+        // Traverse the linked list to find the last node
         incrementor = headerNode;
         while (incrementor->getNextAddress() != nullptr) {
             incrementor = incrementor->getNextAddress();
         }
+        // Create a new node and set its word and synonym
         newNode->setSynonym(synonym);
         newNode->setWord(word);
+        // Set the new node as the tail of the linked list
         newNode->setTail();
+        // Connect the last node to the new node
         incrementor->setNextAddress(newNode);
     }
 }
 
+// Function to display the contents of the linked list
 void NodeProcess::showList() {
     if (isEmpty()) {
         cout << "Database is empty.Please insert the words" << endl;
@@ -43,6 +49,7 @@ void NodeProcess::showList() {
     }
 }
 
+// Function to search for a node by its word number
 void NodeProcess::searchNode(int word) {
     if (isEmpty()) {
         cout << "Database is empty.Please insert the words" << endl;
@@ -61,6 +68,7 @@ void NodeProcess::searchNode(int word) {
     cout << "Word[" << word << "] : " << incrementor->getWord() << " := " << incrementor->getSynonym() << endl;
 }
 
+// Function to search for a node by its word or synonym
 void NodeProcess::searchNode(string word) {
     if (isEmpty()) {
         cout << "Database is empty.Please insert the words" << endl;
@@ -80,6 +88,8 @@ void NodeProcess::searchNode(string word) {
     }
     cout << "Word[" << index << "] : " << incrementor->getWord() << " := " << incrementor->getSynonym() << endl;
 }
+
+// Function to edit a node's word or synonym
 void NodeProcess::editNode(string word) {
     if (isEmpty()) {
         cout << "Database is empty.Please insert the words" << endl;
@@ -111,6 +121,7 @@ void NodeProcess::editNode(string word) {
     }
 }
 
+// Function to delete a node by its word or synonym
 void NodeProcess::deleteNode(string word) {
     if (isEmpty()) {
         cout << "Database is empty. Please insert the words" << endl;
@@ -140,11 +151,13 @@ void NodeProcess::deleteNode(string word) {
     cout << "Node deleted successfully." << endl;
 }
 
+// Function to check if the linked list is empty
 bool NodeProcess::isEmpty() {
     if (headerNode == nullptr) return true;
     else return false;
 }
 
+// Function to export the contents of the linked list to a CSV file
 void NodeProcess::exportNodes() {
     if (isEmpty()) {
         cout << "Database is empty.Please insert the words" << endl;
@@ -162,6 +175,7 @@ void NodeProcess::exportNodes() {
     file.close();
 }
 
+// Function to import nodes from a CSV file
 void NodeProcess::importNodes() {
     headerNode = nullptr;
     string fileName;
@@ -194,5 +208,4 @@ void NodeProcess::importNodes() {
         file.close();
         showList();
     }
-
 }
