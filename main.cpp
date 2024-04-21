@@ -26,12 +26,13 @@ int main() {
         cout << "5. Display all of of the database" << endl;
         cout << "6. Import data from file" << endl;
         cout << "7. Export data to file" << endl;
-        cout << "8. Exit" << endl;
+        cout << "8. Sort by alphabet order" << endl;
+        cout << "9. Exit" << endl;
 
         // Get user input and validate the choice
         try {
             cin >> userChoice;
-            if (userChoice < 1 || userChoice > 8) {
+            if (userChoice < 1 || userChoice > 9) {
                 throw invalid_argument("Invalid choice");
             }
         } catch (const invalid_argument& e) {
@@ -79,7 +80,7 @@ int main() {
                 }
                 break;
 
-                // Case 5: Display all of the database
+                // Case 5: Display all the database
             case 5:
                 processor.showList();
                 break;
@@ -93,9 +94,12 @@ int main() {
             case 7:
                 processor.exportNodes();
                 break;
-
-                // Case 8: Exit
             case 8:
+                NodeProcess::sortNodes();
+                cout << "Sorting by alphabet done successfully." << endl;
+                break;
+                // Case 9: Exit
+            case 9:
                 char choice;
                 cout << "Do you want to save your progress? (y/n):\n";
                 cin >> choice;

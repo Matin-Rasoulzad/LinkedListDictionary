@@ -19,5 +19,6 @@ public:
     bool isEmpty();
     void exportNodes();
     void importNodes();
+    static void sortNodes();
 };
 #endif //LINKEDLISTDICTIONARY_NODEPROCESS_H

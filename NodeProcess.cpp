@@ -199,13 +199,41 @@ void NodeProcess::importNodes() {
         string word;
         string countStr;
         string synonym;
-        while (file.good()) {
-            getline(file, countStr, ',');
-            getline(file, word, ',');
-            getline(file, synonym, '\n');
+        while (getline(file, countStr, ',') && getline(file, word, ',') && getline(file, synonym, '\n')) {
             addNode(word, synonym);
         }
         file.close();
         showList();
     }
+}
+
+void NodeProcess::sortNodes() {
+    if (headerNode == nullptr || headerNode->getNextAddress() == nullptr) {
+        // If the list is empty or has only one node, it's already sorted
+        return;
+    }
+
+    NODE *current = headerNode;
+    NODE *next = headerNode->getNextAddress();
+    bool swapped;
+    do {
+        swapped = false;
+        while (next != nullptr) {
+            if (current->getWord() > next->getWord()) {
+                // Swap the nodes
+                string tempWord = current->getWord();
+                string tempSynonym = current->getSynonym();
+                current->setWord(next->getWord());
+                current->setSynonym(next->getSynonym());
+                next->setWord(tempWord);
+                next->setSynonym(tempSynonym);
+                swapped = true;
+            }
+            current = next;
+            next = next->getNextAddress();
+        }
+        // Move the pointer back to the beginning of the list for the next iteration
+        current = headerNode;
+        next = headerNode->getNextAddress();
+    } while (swapped);
 }
